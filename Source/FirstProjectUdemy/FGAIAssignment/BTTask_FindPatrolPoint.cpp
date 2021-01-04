@@ -6,6 +6,7 @@
 #include "AIController.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "PatrollPoint.h"
+#include "FGAIController.h"
 
 UBTTask_FindPatrolPoint::UBTTask_FindPatrolPoint()
 {
@@ -25,7 +26,7 @@ EBTNodeResult::Type UBTTask_FindPatrolPoint::ExecuteTask(UBehaviorTreeComponent&
 	{
 		return EBTNodeResult::Failed;
 	}
-
+	
 	int32 index = OwnerComp.GetBlackboardComponent()->GetValueAsInt("PatrolPointIndex");
 	FVector PointLocation = AIEnemy->GetPatrolPoints()->GetPatrolPoint(index);
 

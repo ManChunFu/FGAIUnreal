@@ -36,7 +36,6 @@ AFGAIController::AFGAIController()
 
 }
 
-
 void AFGAIController::SetPawn(APawn* InPawn)
 {
 	Super::SetPawn(InPawn);
@@ -65,6 +64,8 @@ void AFGAIController::SetTargetCaught(AActor* Actor, FAIStimulus Stimulus)
 	}
 	else
 	{
+		GetPerceptionComponent()->ForgetActor(Player);
+		GetBlackboardComponent()->SetValueAsBool("CanSeePlayer", false);
 		GetBlackboardComponent()->ClearValue("Target");
 	}
 }
